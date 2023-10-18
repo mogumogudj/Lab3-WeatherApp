@@ -23,7 +23,12 @@ export default class App {
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${x}&longitude=${y}&hourly=temperature_2m&current_weather=true&forecast_days=1`)
             .then(response => response.json())
             .then(data => {
-                document.querySelector("h2").innerHTML = data.current_weather.temperature + "°C";
+                const temp = data.current_weather.temperature;
+                document.querySelector("h2").innerHTML = temp + "°C";
+
+                if (temp < 12) {
+                    console.log("cold");
+                }
             })
             .catch(error => console.log(error));
     }
