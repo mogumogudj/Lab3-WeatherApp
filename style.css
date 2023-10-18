@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap');
 
 body {
   margin: 0;
@@ -5,6 +6,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: beige;
+  font-family: 'Gabarito', sans-serif;
+  text-transform: lowercase;
 }
 
 #app {
@@ -27,6 +31,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   text-align: center;
+  box-shadow: 8px 8px rgba(0,0,0,0.3);
 }
 
 .top-left {
@@ -39,12 +44,14 @@ h2 {
   font-size: 24px;
   margin-bottom: 10px;
   align-self: flex-end;
+  font-weight: 900;
 }
 
 p {
   font-size: 16px;
   align-self: flex-start;
   margin: 0;
+  font-weight: 200;
 }
 
 .ad-image {
@@ -53,4 +60,21 @@ p {
   background-size: cover;
   background-position: center;
   border-radius: 5px;
+}
+
+#play-bird-sound {
+  background-color: teal;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+#play-bird-sound:hover {
+  background-color: rgb(3, 85, 85);
 }
