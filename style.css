@@ -78,3 +78,10 @@ p {
 #play-bird-sound:hover {
   background-color: rgb(3, 85, 85);
 }
+
+.big-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: teal;
+}
