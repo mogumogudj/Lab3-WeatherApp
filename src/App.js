@@ -68,9 +68,16 @@ export default class App {
         const randomRecording = data.recordings[randomIndex];
 
         const audioUrl = randomRecording.file;
+        const imageSmallURL = randomRecording.sono.small;
 
         const audio = new Audio(audioUrl);
         audio.play();
+
+          // Display the image on the page
+          const imageElement = new Image();
+          imageElement.src = imageSmallURL;
+          imageElement.alt = "Bird Sound Image";
+          document.getElementById("app").appendChild(imageElement);
       })
       .catch(error => console.log(error));
   }
