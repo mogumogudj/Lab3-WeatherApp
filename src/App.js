@@ -8,7 +8,7 @@ export default class App {
     getLocation() {
         navigator.geolocation.getCurrentPosition(
             this.showPosition.bind(this),
-            this.showError(this)
+            this.showError.bind(this)
         );
     }
 
