@@ -8,7 +8,7 @@ export default class App {
     getLocation() {
         navigator.geolocation.getCurrentPosition(
             this.showPosition.bind(this),
-            this.showError()
+            this.showError(this)
         );
     }
 
@@ -36,22 +36,20 @@ export default class App {
     getWeather(x, y) {
         //api key url to ask for all data needed with x and y coordinates
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${x}&longitude=${y}&hourly=temperature_2m&current_weather=true&forecast_days=1`)
-            .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+              throw new Error(`Network response was not ok: ${response.status}`);
+          }
+          return response.json();
+        })
             .then(data => {
                 const temp = data.current_weather.temperature;
                 document.querySelector("h2").innerHTML = temp + "°C";
 
                 this.updateWeatherIcon(temp);
-            }
-            
-            )
-
-
-
-            
+            })
             .catch(error => console.log(error));
     }
-
     showError(error) {
         console.log(error);
     }
@@ -77,6 +75,8 @@ export default class App {
           // Display the image on the page
           // Set the background image of the "ad" div
           const adDiv = document.querySelector('.ad');
+          console.log("bird cover uploaded" + imageSmallURL)
+          ;
           adDiv.style.backgroundImage = `url(${imageSmallURL})`;
 
           const informationElement = document.getElementById('information');
@@ -89,6 +89,8 @@ export default class App {
     const playButton = document.getElementById("play-bird-sound");
     playButton.addEventListener("click", () => {
       this.playRandomBirdSound();
+
+      console.log("bird sound is playing");
     });
   }
 
